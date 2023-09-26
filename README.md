@@ -1,11 +1,39 @@
 # Credit Risk Classification
 
-The purpose of this analysis was to create a supervised machine learning model that can predict whether an applicant will result in a healthy or high-risk loan. The data includes loan size, interest rate, borrower's income, debt-to-income ration, number of accounts, derogatory marks, total debt, and loan status (healthy or high risk).
+## Overview
+The purpose of this project is to build a machine learning model that can accurately predict the creditworthiness of borrowers. Using logistic regression, the model classifies loans into "Healthy" or "High-Risk" categories based on various features such as loan size, interest rate, borrower's income, and more. 
 
-I created a y set from the loan_status column and dropped it from the dataframe to create a features list "X" from the other remaining columns. Using value_counts, I determined how many of each loan type were included in the dataset. 75036 healthy loans and 2500 high-risk loans were included, which suggests this is not a balanced dataset.
+## Table of Contents
+1. [Data Preprocessing](#data-preprocessing)
+2. [Model Building](#model-building)
+3. [Performance Metrics](#performance-metrics)
+4. [Conclusion](#conclusion)
 
-I then split the data into training and testing groups. I fit the training data to a Logistic Regression model, then applied it to the test group and scored the model. I created a dataframe to compare predicted versus actual results for the test group. 
+## Data Preprocessing
+- Created a target set `y` from the `loan_status` column.
+- Created a feature set `X` from the remaining columns.
+- Data was split into training and testing datasets using `train_test_split`.
 
-To analyze the performance, I applied a balanced accuracy score, created a confusion matrix, and printed a classification report. I chose a balanced accuracy because the dataset is imbalanced, as discovered during the value_counts function earlier in the analysis. 
+## Model Building
+- Utilized logistic regression to fit the model on the training data (`X_train` and `y_train`).
+- Made predictions on the testing data (`X_test`) using the fitted model.
 
-These steps were then repeated on resampled data in order to determine if there would be a different result. Both models performed with identical results, suggesting that logistic regression model was already quite effective at handling the data distribution and did not require resampling in order to improve.
+## Performance Metrics
+- **Balanced Accuracy Score**: 0.9520
+- **Confusion Matrix**: 
+    * True Positive: 563
+    * True Negative: 18663
+    * False Positive: 102
+    * False Negative: 56
+- **Classification Report**:
+    * Healthy Loans Precision: 1.00
+    * High-Risk Loans Precision: 0.85
+    * Healthy Loans Recall: 0.99
+    * High-Risk Loans Recall: 0.91
+    * Weighted Average F1-Score: 0.99
+
+### Analysis of Model Performance
+The model shows a high balanced accuracy score of 0.9520, indicating that it is effective in classifying both healthy and high-risk loans. The precision, recall, and F1-score for "Healthy Loans" are near perfect, showcasing the model's reliability for this class. For "High-Risk Loans," the precision and recall are also commendable, revealing the model's aptitude in identifying risky lending cases. 
+
+## Conclusion
+The logistic regression model demonstrates excellent performance in predicting both healthy and high-risk loans. Given its high balanced accuracy and precision-recall scores, this model is highly recommended for evaluating the credit risk of borrowers.
