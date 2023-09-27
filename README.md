@@ -1,5 +1,5 @@
 # Credit Risk Classification
-
+ 
 ## Overview
 The purpose of this project is to build a machine learning model that can accurately predict the creditworthiness of borrowers. Using logistic regression, the model classifies loans into "Healthy" or "High-Risk" categories based on various features such as loan size, interest rate, borrower's income, and more. 
 
